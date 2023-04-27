@@ -52,7 +52,7 @@ public abstract class WebViewContent {
         return true;
     }
 
-    abstract WebResourceResponse loadResourceImpl(Context context, WebViewResource webViewResource);
+    protected abstract WebResourceResponse loadResourceImpl(Context context, WebViewResource webViewResource);
 
     @RestrictTo(RestrictTo.Scope.LIBRARY)
     public final WebResourceResponse loadResource(Context context, Uri uri) {
