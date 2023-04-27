@@ -21,8 +21,8 @@ import androidx.annotation.RestrictTo;
 public abstract class WebViewContent {
 
 
-    private final List<WebViewResource> webViewResources = new CopyOnWriteArrayList<>();
-    private WeakReference<ProgressChangedListener> doneListenerWeakReference;
+    protected final List<WebViewResource> webViewResources = new CopyOnWriteArrayList<>();
+    protected WeakReference<ProgressChangedListener> doneListenerWeakReference;
 
     /***
      * Supports loading local files from /assets
@@ -110,7 +110,7 @@ public abstract class WebViewContent {
     }
 
 
-    void resourceLoaded() {
+    protected void resourceLoaded() {
         ProgressChangedListener progressChangedListener = this.doneListenerWeakReference.get();
         if (isDone() && this.doneListenerWeakReference != null) {
             progressChangedListener.progressChanged();

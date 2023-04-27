@@ -6,11 +6,11 @@ import java.io.InputStream;
 
 import androidx.annotation.NonNull;
 
-class InputStreamWrapper extends BufferedInputStream {
+public class InputStreamWrapper extends BufferedInputStream {
 
     private final Callback callback;
 
-    InputStreamWrapper(Callback callback, @NonNull InputStream in) {
+    public InputStreamWrapper(Callback callback, @NonNull InputStream in) {
         super(in);
         this.callback = callback;
     }
@@ -21,7 +21,7 @@ class InputStreamWrapper extends BufferedInputStream {
         callback.onClose();
     }
 
-    interface Callback {
+    public interface Callback {
         void onClose();
     }
 }
